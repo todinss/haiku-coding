@@ -1,0 +1,172 @@
+
+<Content>:
+    adaptive_height: True
+    #name:"content"
+    #draw:container
+    height: root.height
+
+    orientation: "vertical"
+    ScrollView: 
+        id:scroller
+        MDList:
+            adaptive_height: True
+            id: container
+
+<SwipeToDeleteItem>:
+    size_hint_y: None
+    height: 75
+
+    MDCardSwipeLayerBox:
+        padding: "8dp"
+
+        MDIconButton:
+            icon: "trash-can"
+            pos_hint: {"center_y": .5}
+            on_release: app.delete_item(root)
+
+        MDIconButton:
+            icon: "content-copy"
+            pos_hint: {"center_y": .5}
+            on_release: app.copy_item(root)
+
+    MDCardSwipeFrontBox:
+
+        ThreeLineListItem:
+            id: root.number
+            text: root.text
+            secondary_text: root.secondary_text
+            tertiary_text: root.tertiary_text
+            _no_ripple_effect: True
+
+NavigationLayout:
+
+    ScreenManager:
+
+        Screen:
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                MDToolbar:
+                    title: "Haiku Generator"
+                    specific_text_color: app.theme_cls.opposite_bg_normal
+                    elevation: 0
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state()]]
+
+                GridLayout:
+                    rows: 3
+                    padding: "8dp"
+                    spacing: "8dp"
+
+                    MDLabel:
+                        id: verso_1
+                        text: ""
+                        font_style: "H4"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.opposite_bg_normal
+                        halign: "center"
+
+                    MDLabel:
+                        id: verso_2
+                        text: ""
+                        font_style: "H4"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.opposite_bg_normal
+                        halign: "center"
+
+                    MDLabel:
+                        id: verso_3
+                        text: ""
+                        font_style: "H4"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.opposite_bg_normal
+                        halign: "center"
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: "8dp"
+                    spacing: "8dp"
+
+                    MDFillRoundFlatButton:
+                        text: "Generate Haiku"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.opposite_bg_normal
+                        halign: "center"
+                        size_hint_x: 0.8
+                        on_release: app.generate_haiku()
+                        pad_y: 30
+   
+                    MDIconButton:
+                        icon: "content-copy"
+                        size_hint_x: 0.1
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.opposite_bg_normal
+                        on_release: app.copy_haiku()
+                        md_bg_color: app.theme_cls.primary_color
+
+    MDNavigationDrawer:
+        id: nav_drawer
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "8dp"
+            spacing: "8dp"
+
+            AnchorLayout:
+                anchor_x: "left"
+                size_hint_y: None
+                height: avatar.height
+
+                Image:
+                    id: avatar
+                    size_hint: None, None
+                    size: "56dp", "56dp"
+                    source: "icon.png"
+
+            MDLabel:
+                text: "Haiku Generator"
+                font_style: "Button"
+                size_hint_y: None
+                height: self.texture_size[1]
+                theme_text_color: "Primary"
+
+            ScrollView:
+            
+                MDList:
+
+                    OneLineAvatarListItem:
+                        text: "Contatti"
+                        theme_text_color: "Primary"
+                        on_release: app.show_contact_dialog()
+
+                        IconLeftWidget:
+                            icon: "contact-mail-outline"
+                            on_release: app.show_contact_dialog()
+
+                    OneLineAvatarListItem:
+                        text: "Cronologia"
+                        theme_text_color: "Primary"
+                        on_release: app.show_history_dialog()
+
+                        IconLeftWidget:
+                            icon: "history"
+                            on_release: app.show_history_dialog()
+
+
+	                OneLineAvatarListItem:
+                        text: "Tema"
+                        theme_text_color: "Primary"
+                        on_release: app.change_theme()
+
+                        IconLeftWidget:
+                            icon: "theme-light-dark"
+                            on_release: app.change_theme()
+
+                    OneLineAvatarListItem:
+                        text: "Info App"
+                        theme_text_color: "Primary"
+                        on_release: app.show_info_dialog()
+
+                        IconLeftWidget:
+                            icon: "information-outline"
+                            on_release: app.show_info_dialog()
