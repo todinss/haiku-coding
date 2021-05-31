@@ -19,13 +19,13 @@ L'applicazione è stata sviluppata da un gruppo di studenti dell'istituto "**Gia
 
 ## **FOTO DELL'APPLICAZIONE**
 
-![alt text](https://i.imgur.com/WmttTSQ.jpg
+![alt text](https://i.imgur.com/YeBiaQD.jpg
  "Schermata principale")
- ![alt text](https://i.imgur.com/duuVa4I.jpg
+ ![alt text](https://i.imgur.com/ZtSLtOE.jpg
  "esempio haiku")
-![alt text](https://i.imgur.com/NQlkZRH.jpg
+![alt text](https://i.imgur.com/Etry4XX.jpg
  "barra laterale")
-![alt text](https://i.imgur.com/gHyT5bo.jpg
+![alt text](https://i.imgur.com/FJZpg8Q.png
  "cronologia")
-![alt text](https://i.imgur.com/yZM4RVo.jpg
- "opzioni della cronologia")
+![alt text](https://i.imgur.com/AqlXfMS.jpg
+ "cronologia vuota")
